@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Spokesmen Stories | Stories</title>
+{% endblock title %}
+{% block body %}
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Stories</h1>
+    <hr><br>
+    {% for i in stories %}
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">Written By {{i.author}}</span>
+          <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{loop.index}}.{{i.title}}</h2>
+          <p class="leading-relaxed">{{i.description}}</p>
+          <a class="text-blue-500 inline-flex items-center mt-4" href="{{ url_for('static', filename='uploads/'+i.word) }}">Read Now
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a><br><br>
+          <div>
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Audio File</h2>
+            <audio controls>
+              <source src="{{ url_for('static', filename=i.audio) }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <a href="/static/speech.mp3" class="leading-relaxed text-blue-500">Dowload Audio File</a>
+          </div>
+        </div>
+      </div><hr>
+    {% endfor %}
+      
+      
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock body %}
