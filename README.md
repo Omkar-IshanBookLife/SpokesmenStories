@@ -20,11 +20,11 @@ Pip install flask
 Pip install flask-sqlalchemy
 Pip install flask-mail
 
-3. Close the prompt and download the folder.
-4. Open the command prompt at its location.
-5. Run the command
-    Python app.py 
-6. Open localhost on port 5000
-    Localhost:5000
+Close the prompt and download the folder.
+open the command prompt at its location.
+Run the command
+Python app.py 
+Open localhost on port 5000
+Localhost:5000
 
 
